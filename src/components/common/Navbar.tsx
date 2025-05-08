@@ -14,14 +14,35 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
+import DragIndicatorOutlinedIcon from "@mui/icons-material/DragIndicatorOutlined";
+import ViewListIcon from "@mui/icons-material/ViewList";
+import ViewListOutlinedIcon from "@mui/icons-material/ViewListOutlined";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
 const pages = [
-  { name: "Dashboard", path: "/dashboard", icon: "📊" },
-  { name: "Drag & Drop", path: "/dashboard/drag-drop", icon: "🔄" },
-  { name: "Infinite Scroll", path: "/dashboard/infinite-scroll", icon: "📜" },
+  {
+    name: "Dashboard",
+    path: "/dashboard",
+    activeIcon: <DashboardIcon />,
+    inactiveIcon: <DashboardOutlinedIcon />,
+  },
+  {
+    name: "Drag & Drop",
+    path: "/dashboard/drag-drop",
+    activeIcon: <DragIndicatorIcon />,
+    inactiveIcon: <DragIndicatorOutlinedIcon />,
+  },
+  {
+    name: "Infinite Scroll",
+    path: "/dashboard/infinite-scroll",
+    activeIcon: <ViewListIcon />,
+    inactiveIcon: <ViewListOutlinedIcon />,
+  },
 ];
 
 export const Navbar = () => {
@@ -127,9 +148,12 @@ export const Navbar = () => {
                     },
                   }}
                 >
-                  <Typography textAlign="center">
-                    {page.icon} {page.name}
-                  </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    {location.pathname === page.path
+                      ? page.activeIcon
+                      : page.inactiveIcon}
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </Box>
                 </MenuItem>
               ))}
             </Menu>
@@ -157,7 +181,9 @@ export const Navbar = () => {
                 sx={{
                   my: 2,
                   color: "text.primary",
-                  display: "block",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
                   mx: 1,
                   position: "relative",
                   "&::after": {
@@ -175,7 +201,10 @@ export const Navbar = () => {
                   },
                 }}
               >
-                {page.icon} {page.name}
+                {location.pathname === page.path
+                  ? page.activeIcon
+                  : page.inactiveIcon}
+                {page.name}
               </Button>
             ))}
           </Box>

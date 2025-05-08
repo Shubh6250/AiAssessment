@@ -8,11 +8,12 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme } from "@mui/material";
 import { LoadingProvider, useLoading } from "./context/LoadingContext";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { theme } from "./theme/theme";
+import { Background } from "./components/common/Background";
 
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
@@ -25,7 +26,6 @@ import { PrivateRoute } from "./components/auth/PrivateRoute";
 import { PublicRoute } from "./components/auth/PublicRoute";
 
 const queryClient = new QueryClient();
-const theme = createTheme();
 
 const RouteChangeHandler = () => {
   const location = useLocation();
@@ -35,7 +35,7 @@ const RouteChangeHandler = () => {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 500); // Minimum loading time to prevent flickering
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [location, setLoading]);
@@ -50,6 +50,7 @@ function App() {
         <CssBaseline />
         <LoadingProvider>
           <Router>
+            <Background />
             <RouteChangeHandler />
             <ToastContainer
               position="top-right"

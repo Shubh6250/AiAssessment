@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dog silhouette pattern -->
+  <path d="M100 20C60 20 30 50 30 90C30 130 60 160 100 160C140 160 170 130 170 90C170 50 140 20 100 20ZM100 140C70 140 50 120 50 90C50 60 70 40 100 40C130 40 150 60 150 90C150 120 130 140 100 140Z" fill="#8B4513" opacity="0.1"/>
+  
+  <!-- Ears -->
+  <path d="M60 40C50 30 40 40 45 55C50 70 65 65 60 40Z" fill="#8B4513" opacity="0.1"/>
+  <path d="M140 40C150 30 160 40 155 55C150 70 135 65 140 40Z" fill="#8B4513" opacity="0.1"/>
+  
+  <!-- Snout -->
+  <path d="M85 100C85 90 95 90 95 100C95 110 85 110 85 100Z" fill="#8B4513" opacity="0.1"/>
+  
+  <!-- Eyes -->
+  <circle cx="75" cy="80" r="5" fill="#8B4513" opacity="0.1"/>
+  <circle cx="125" cy="80" r="5" fill="#8B4513" opacity="0.1"/>
+</svg> 

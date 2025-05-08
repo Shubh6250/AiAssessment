@@ -11,6 +11,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme } from "@mui/material";
 import { LoadingProvider, useLoading } from "./context/LoadingContext";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
@@ -49,6 +51,18 @@ function App() {
         <LoadingProvider>
           <Router>
             <RouteChangeHandler />
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
             <Routes>
               <Route
                 path="/login"

@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -30,7 +31,11 @@ export const Login = () => {
     onSubmit: async (values) => {
       try {
         await login(values);
+        toast.success("Successfully logged in!");
       } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : "Failed to sign in"
+        );
         console.error("Login failed:", error);
       }
     },
